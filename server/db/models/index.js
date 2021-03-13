@@ -1,5 +1,5 @@
 const User = require('./user')
-const Recipes = require('./recipes')
+const Recipe = require('./recipe')
 
 /**
  * If we had any associations to make, this would be a great place to put them!
@@ -8,7 +8,7 @@ const Recipes = require('./recipes')
  *    BlogPost.belongsTo(User)
  */
 
-User.hasMany(Recipes)
+User.hasMany(Recipe)
 
 /**
  * We'll export all of our models here, so that any time a module needs a model,
@@ -18,5 +18,5 @@ User.hasMany(Recipes)
  */
 module.exports = {
   User,
-  Recipes,
+  Recipe
 }

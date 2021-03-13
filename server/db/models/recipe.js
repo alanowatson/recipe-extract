@@ -1,17 +1,17 @@
 const Sequelize = require('sequelize')
 const db = require('../db')
 
-const Recipes = db.define('recipes', {
+const Recipe = db.define('recipe', {
   Url: {
     type: Sequelize.STRING,
     unique: true,
-    allowNull: false,
+    allowNull: false
   },
   Ingredients: {
     type: Sequelize.ARRAY(Sequelize.TEXT),
     unique: false,
-    allowNull: false,
-  },
+    allowNull: false
+  }
 })
 
-module.exports = Recipes
+module.exports = Recipe
