@@ -4,8 +4,9 @@ import thunkMiddleware from 'redux-thunk'
 import {composeWithDevTools} from 'redux-devtools-extension'
 import user from './user'
 import recipe from './recipe'
+import currentSite from './currentSite'
 
-const reducer = combineReducers({user, recipe})
+const reducer = combineReducers({user, recipe, currentSite})
 const middleware = composeWithDevTools(
   applyMiddleware(thunkMiddleware, createLogger({collapsed: true}))
 )

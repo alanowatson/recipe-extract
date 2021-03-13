@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
-import {getIngredients} from '../store/recipe'
 import {connect} from 'react-redux'
+import {getIngredients, removeIngredients} from '../store/recipe'
+import {setWebsite, clearWebsite} from '../store/currentSite'
 
 /**
  * COMPONENT
@@ -8,8 +9,12 @@ import {connect} from 'react-redux'
 class SearchForm extends Component {
   constructor(props) {
     super(props)
-    this.state = {}
     this.handleSubmit = this.handleSubmit.bind(this)
+  }
+
+  componentDidMount() {
+    this.props.clearWebsite()
+    this.props.removeIngredients()
   }
 
   handleSubmit(evt) {
@@ -17,6 +22,7 @@ class SearchForm extends Component {
     const url = evt.target[0].value
     console.log('handleSubmit URL', url)
     this.props.getIngredients(url)
+    this.props.setWebsite(url)
     this.props.history.push('/recipe')
   }
 
@@ -41,13 +47,17 @@ class SearchForm extends Component {
 
 const mapState = state => {
   return {
-    recipe: state.recipe
+    recipe: state.recipe,
+    currentSite: state.currentSite
   }
 }
 
 const mapDispatch = dispatch => {
   return {
-    getIngredients: url => dispatch(getIngredients(url))
+    getIngredients: url => dispatch(getIngredients(url)),
+    setWebsite: url => dispatch(setWebsite(url)),
+    clearWebsite: () => dispatch(clearWebsite()),
+    removeIngredients: () => dispatch(removeIngredients())
   }
 }
 
