@@ -27,7 +27,6 @@ const Recipe = props => {
       <div className="container">
         <h3>{props.currentSite}</h3>
         <ul>
-          {' '}
           <h4>Ingredients List</h4>
         </ul>
         {props.recipe.map((ingredient, index) => {
