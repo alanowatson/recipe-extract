@@ -1,3 +1,3 @@
-This is my app called Recipe Extract.
+This is my app called Recipe Extract, which allows you to skip a food-bloggers story, and get straight to the ingredients for shopping!
 
-At the moment it works with AllRecipes.com where it will extract just the ingredients, and get you a grocery list asap.
+Find the deployed site here: https://recipe-extract.herokuapp.com/ 
