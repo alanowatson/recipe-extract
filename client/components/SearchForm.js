@@ -28,15 +28,21 @@ class SearchForm extends Component {
 
   render() {
     return (
-      <div>
+      <div className="container">
         <form onSubmit={this.handleSubmit}>
           <div>
             <label htmlFor="url">
-              <small>Enter your recipe</small>
+              <h3>Enter your recipe link:</h3>
             </label>
-            <input type="text" placeholder="Paste link here!" />
-            <div>
-              <button type="submit">Get Ingredients!</button>
+            <input
+              className="padding"
+              type="text-medium"
+              placeholder="Paste link here!"
+            />
+            <div className="buttons_container">
+              <button className="btn" type="submit">
+                Get Ingredients!
+              </button>
             </div>
           </div>
         </form>

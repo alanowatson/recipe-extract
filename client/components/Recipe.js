@@ -8,30 +8,35 @@ import {connect} from 'react-redux'
 const Recipe = props => {
   // console.log('state', this.state) // undefined
   // console.log('state', state)
-
-  if (!props.recipe.length) {
+  if (!props.currentSite.length) {
+    return <h3>Welcome</h3>
+  } else if (!props.recipe.length) {
     return (
-      <div>
-        <h2>
+      <div className="container">
+        <h3>
           {`Loading ingredients from ${props.currentSite.slice(0, 30)}...`}
-        </h2>
-
-        <h3> ... Sorry for the delay, we're filtering out a LOT of ads. </h3>
+        </h3>
+        <h3>...</h3>
+        <h3>...</h3>
+        <h3>...</h3>
+        <h3>... Sorry for the delay, we're filtering out a LOT of ads. </h3>
       </div>
     )
   } else {
     return (
-      <div>
-        <h2>{props.currentSite}</h2>
-        <ul>Ingredients List</ul>
+      <div className="container">
+        <h3>{props.currentSite}</h3>
+        <ul>
+          {' '}
+          <h4>Ingredients List</h4>
+        </ul>
         {props.recipe.map((ingredient, index) => {
           return (
-            <li key={index} className="ingredient-container">
+            <li key={index} className="ingredients">
               {ingredient}
             </li>
           )
         })}
-        <p>Click the "Home" at the top start over</p>
       </div>
     )
   }
