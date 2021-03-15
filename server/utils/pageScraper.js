@@ -10,13 +10,26 @@ async function scraper(browser, url) {
     'script[type="application/ld+json"]',
     e => e.innerHTML
   )
-  const objHtml = JSON.parse(html)
+  let objHtml = JSON.parse(html)
   // console.log(html)
 
-  // console.log(objHtml)
   // console.log(objHtml[`@graph`])
-  ingredientsArray = objHtml[1].recipeIngredient
-  // console.log(ingredientsArray)
+  console.log(objHtml)
+  if (objHtml[`@graph`]) {
+    console.log(objHtml[`@graph`])
+    ingredientsArray = objHtml[`@graph`].filter(
+      obj => 'recipeIngredient' in obj
+    )[0].recipeIngredient
+    console.log(ingredientsArray)
+  } else if (!objHtml.recipeIngredient) {
+    ingredientsArray = objHtml.filter(obj => 'recipeIngredient' in obj)[0]
+      .recipeIngredient
+    console.log(ingredientsArray)
+  }
+  if (ingredientsArray === undefined)
+    ingredientsArray = [
+      `We're sorry, the website's not set up for us to grab the recipe`
+    ]
   return ingredientsArray
   ///boom we have the ingredient array (at least for one website)
 
