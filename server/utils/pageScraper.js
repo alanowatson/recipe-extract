@@ -12,6 +12,20 @@ async function scraper(browser, url) {
   )
   let objHtml = JSON.parse(html)
 
-  return filterRecipe(objHtml)
+  if (objHtml[`@graph`]) {
+    ingredientsArray = objHtml[`@graph`].filter(
+      obj => 'recipeIngredient' in obj
+    )[0].recipeIngredient
+    console.log(ingredientsArray)
+  } else if (!objHtml.recipeIngredient) {
+    ingredientsArray = objHtml.filter(obj => 'recipeIngredient' in obj)[0]
+      .recipeIngredient
+    console.log(ingredientsArray)
+  }
+  if (ingredientsArray[0] === undefined)
+    ingredientsArray = [
+      `We're sorry, the website's not set up for us to grab the recipe`
+    ]
+  return ingredientsArray
 }
 module.exports = {scraper}
