@@ -36,8 +36,6 @@ export const removeIngredients = () => async (dispatch) => {
 };
 
 export default function (state = initialState, action) {
-  console.log('------------------------------------');
-  console.log('------inside reducer--------');
   switch (action.type) {
     case FETCH_INGREDIENTS:
       return action.ingredients;

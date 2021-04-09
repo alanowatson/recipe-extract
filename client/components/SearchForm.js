@@ -17,7 +17,6 @@ class SearchForm extends Component {
   handleSubmit(evt) {
     evt.preventDefault();
     const url = evt.target[0].value;
-    console.log('handleSubmit URL', url);
     this.props.getIngredients(url);
     this.props.setWebsite(url);
     this.props.history.push('/recipe');
