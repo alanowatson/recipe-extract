@@ -35,9 +35,7 @@ const Recipe = (props) => {
   }
 };
 
-/**
- * CONTAINER
- */
+
 const mapState = (state) => ({
   recipe: state.recipe,
   currentSite: state.currentSite
