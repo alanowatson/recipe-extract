@@ -3,9 +3,6 @@ import {connect} from 'react-redux';
 import {getIngredients, removeIngredients} from '../store/recipe';
 import {setWebsite, clearWebsite} from '../store/currentSite';
 
-/**
- * COMPONENT
- */
 class SearchForm extends Component {
   constructor(props) {
     super(props);
