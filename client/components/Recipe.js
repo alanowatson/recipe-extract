@@ -1,15 +1,9 @@
-import React from 'react'
-import {connect} from 'react-redux'
+import React from 'react';
+import {connect} from 'react-redux';
 
-/**
- * COMPONENT
- */
-
-const Recipe = props => {
-  // console.log('state', this.state) // undefined
-  // console.log('state', state)
+const Recipe = (props) => {
   if (!props.currentSite.length) {
-    return <h3>Welcome</h3>
+    return <h3>Welcome</h3>;
   } else if (!props.recipe.length) {
     return (
       <div className="container">
@@ -21,7 +15,7 @@ const Recipe = props => {
         <h3>...</h3>
         <h3>... Sorry for the delay, we're filtering out a LOT of ads. </h3>
       </div>
-    )
+    );
   } else {
     return (
       <div className="container">
@@ -34,19 +28,19 @@ const Recipe = props => {
             <li key={index} className="ingredients">
               {ingredient}
             </li>
-          )
+          );
         })}
       </div>
-    )
+    );
   }
-}
+};
 
 /**
  * CONTAINER
  */
-const mapState = state => ({
+const mapState = (state) => ({
   recipe: state.recipe,
   currentSite: state.currentSite
-})
+});
 
-export default connect(mapState)(Recipe)
+export default connect(mapState)(Recipe);

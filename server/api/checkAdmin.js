@@ -1,9 +1,9 @@
 const checkAdmin = (req, res, next) => {
   if (req.user.admin) {
-    next()
+    next();
   } else {
-    res.status(403).send('Permission denied')
+    res.status(403).send('Permission denied');
   }
-}
+};
 
-module.exports = checkAdmin
+module.exports = checkAdmin;

@@ -1,5 +1,5 @@
-const Sequelize = require('sequelize')
-const db = require('../db')
+const Sequelize = require('sequelize');
+const db = require('../db');
 
 const Recipe = db.define('recipe', {
   Url: {
@@ -12,6 +12,6 @@ const Recipe = db.define('recipe', {
     unique: false,
     allowNull: false
   }
-})
+});
 
-module.exports = Recipe
+module.exports = Recipe;

@@ -1,64 +1,49 @@
-import axios from 'axios'
+import axios from 'axios';
 
-/**
- * ACTION TYPES
- */
-const FETCH_INGREDIENTS = 'FETCH_INGREDIENTS'
-const CLEAR_INGREDIENTS = 'CLEAR_INGREDIENTS'
+const FETCH_INGREDIENTS = 'FETCH_INGREDIENTS';
+const CLEAR_INGREDIENTS = 'CLEAR_INGREDIENTS';
 
-/**
- * INITIAL STATE
- */
-const initialState = []
+const initialState = [];
 
-/**
- * ACTION CREATORS
- */
-const fetchIngredients = ingredients => ({
+const fetchIngredients = (ingredients) => ({
   type: FETCH_INGREDIENTS,
   ingredients
-})
+});
 
 const clearIngredients = () => ({
   type: CLEAR_INGREDIENTS
-})
+});
 
-/**
- * THUNK CREATORS
- */
-export const getIngredients = url => async dispatch => {
+export const getIngredients = (url) => async (dispatch) => {
   try {
     const ingredients = await axios.get('/api/recipe', {
       params: {
         url: url
       }
-    })
-    await dispatch(fetchIngredients(ingredients.data))
+    });
+    await dispatch(fetchIngredients(ingredients.data));
   } catch (err) {
-    console.error(err)
+    console.error(err);
   }
-}
+};
 
-export const removeIngredients = () => async dispatch => {
+export const removeIngredients = () => async (dispatch) => {
   try {
-    await dispatch(clearIngredients())
+    await dispatch(clearIngredients());
   } catch (err) {
-    console.error(err)
+    console.error(err);
   }
-}
+};
 
-/**
- * REDUCER
- */
-export default function(state = initialState, action) {
-  console.log('------------------------------------')
-  console.log('------inside reducer--------')
+export default function (state = initialState, action) {
+  console.log('------------------------------------');
+  console.log('------inside reducer--------');
   switch (action.type) {
     case FETCH_INGREDIENTS:
-      return action.ingredients
+      return action.ingredients;
     case CLEAR_INGREDIENTS:
-      return initialState
+      return initialState;
     default:
-      return state
+      return state;
   }
 }

@@ -1,60 +1,60 @@
 /**
  * ACTION TYPES
  */
-const SET_WEBSITE = 'SET_WEBSITE'
-const CLEAR_WEBSITE = 'CLEAR_WEBSITE'
+const SET_WEBSITE = 'SET_WEBSITE';
+const CLEAR_WEBSITE = 'CLEAR_WEBSITE';
 
 /**
  * INITIAL STATE
  */
-const initialState = {}
+const initialState = {};
 
 /**
  * ACTION CREATORS
  */
-const setUrl = url => ({
+const setUrl = (url) => ({
   type: SET_WEBSITE,
   url
-})
+});
 
 const loseUrl = () => ({
   type: CLEAR_WEBSITE
-})
+});
 
 /**
  * THUNK CREATORS
  */
-export const setWebsite = url => async dispatch => {
+export const setWebsite = (url) => async (dispatch) => {
   try {
-    console.log('------------------------------------')
-    console.log('------inside URL thunk creator--------')
+    console.log('------------------------------------');
+    console.log('------inside URL thunk creator--------');
 
-    await dispatch(setUrl(url))
+    await dispatch(setUrl(url));
   } catch (err) {
-    console.error(err)
+    console.error(err);
   }
-}
+};
 
-export const clearWebsite = () => async dispatch => {
+export const clearWebsite = () => async (dispatch) => {
   try {
-    await dispatch(loseUrl())
+    await dispatch(loseUrl());
   } catch (err) {
-    console.error(err)
+    console.error(err);
   }
-}
+};
 
 /**
  * REDUCER
  */
-export default function(state = initialState, action) {
-  console.log('------------------------------------')
-  console.log('------inside URL reducer--------')
+export default function (state = initialState, action) {
+  console.log('------------------------------------');
+  console.log('------inside URL reducer--------');
   switch (action.type) {
     case SET_WEBSITE:
-      return action.url
+      return action.url;
     case CLEAR_WEBSITE:
-      return initialState
+      return initialState;
     default:
-      return state
+      return state;
   }
 }

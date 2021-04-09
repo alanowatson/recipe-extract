@@ -1,5 +1,5 @@
-const User = require('./user')
-const Recipe = require('./recipe')
+const User = require('./user');
+const Recipe = require('./recipe');
 
 /**
  * If we had any associations to make, this would be a great place to put them!
@@ -8,7 +8,7 @@ const Recipe = require('./recipe')
  *    BlogPost.belongsTo(User)
  */
 
-User.hasMany(Recipe)
+User.hasMany(Recipe);
 
 /**
  * We'll export all of our models here, so that any time a module needs a model,
@@ -19,4 +19,4 @@ User.hasMany(Recipe)
 module.exports = {
   User,
   Recipe
-}
+};
