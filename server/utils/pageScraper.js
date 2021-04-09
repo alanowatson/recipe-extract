@@ -22,7 +22,7 @@ async function scraper(browser, url) {
       .recipeIngredient
     console.log(ingredientsArray)
   }
-  if (ingredientsArray === undefined)
+  if (ingredientsArray[0] === undefined)
     ingredientsArray = [
       `We're sorry, the website's not set up for us to grab the recipe`
     ]
