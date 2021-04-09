@@ -17,9 +17,6 @@ const loseUrl = () => ({
 
 export const setWebsite = (url) => async (dispatch) => {
   try {
-    console.log('------------------------------------');
-    console.log('------inside URL thunk creator--------');
-
     await dispatch(setUrl(url));
   } catch (err) {
     console.error(err);
