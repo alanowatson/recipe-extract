@@ -47,6 +47,11 @@ li {
   margin-bottom: 24px;
 }
 
+.loading {
+  padding: 12px;
+  margin: 37px;
+}
+
 .padding-down {
   margin-bottom: 24px;
 }

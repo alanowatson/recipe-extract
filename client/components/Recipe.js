@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import ReactLoading from 'react-loading';
 
 const Recipe = (props) => {
   if (!props.currentSite.length) {
@@ -10,10 +11,13 @@ const Recipe = (props) => {
         <h3>
           {`Loading ingredients from ${props.currentSite.slice(0, 30)}...`}
         </h3>
-        <h3>...</h3>
-        <h3>...</h3>
-        <h3>...</h3>
-        <h3>... Sorry for the delay, we're filtering out a LOT of ads. </h3>
+        <ReactLoading
+          className="loading"
+          type="spin"
+          color="fff"
+          height={200}
+          width={200}
+        />
       </div>
     );
   } else {
@@ -34,7 +38,6 @@ const Recipe = (props) => {
     );
   }
 };
-
 
 const mapState = (state) => ({
   recipe: state.recipe,
