@@ -29,6 +29,7 @@ const Recipe = (props) => {
         </ul>
         {props.recipe.map((ingredient, index) => {
           return (
+            // eslint-disable-next-line react/no-array-index-key
             <li key={index} className="ingredients">
               {ingredient}
             </li>

@@ -3,36 +3,41 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import {logout} from '../store';
+import {Navbar, Nav} from 'react-bootstrap';
 
-const Navbar = ({handleClick, isLoggedIn}) => (
-  <div className="top">
-    <h1>Recipe Extract</h1>
-    <nav>
-      {isLoggedIn ? (
-        <div className="nav-container">
-          {/* The navbar will show these links after you log in */}
-          <Link to="/">Home</Link>
-
-          <Link to="/home">Home</Link>
-          <a href="#" onClick={handleClick}>
-            Logout
-          </a>
-        </div>
-      ) : (
-        <div className="nav-container">
-          {/* The navbar will show
-           these links before you log in */}
-          <Link to="/">
-            <h2>Get Shopping</h2>
-          </Link>
-
-        </div>
-      )}
-    </nav>
-    <hr />
+const Navigbar = ({handleClick, isLoggedIn}) => (
+  <div>
+    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+      <Navbar.Brand as={Link} to="/">
+        Recipe Extract
+      </Navbar.Brand>
+      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+      <Navbar.Collapse id="responsive-navbar-nav">
+        <Nav className="mr-auto">
+          <Nav.Link as={Link} to="/">
+            Get Shopping!
+          </Nav.Link>
+        </Nav>
+        {isLoggedIn ? (
+          <Nav className="pull-right">
+            <Nav.Link as={Link} to="/" onClick={handleClick}>
+              Logout
+            </Nav.Link>
+          </Nav>
+        ) : (
+          <Nav className="pull-right">
+            <Nav.Link as={Link} to="/login">
+              Login
+            </Nav.Link>
+            <Nav.Link as={Link} to="/signup">
+              Sign Up
+            </Nav.Link>
+          </Nav>
+        )}
+      </Navbar.Collapse>
+    </Navbar>
   </div>
 );
-
 
 const mapState = (state) => {
   return {
@@ -48,9 +53,9 @@ const mapDispatch = (dispatch) => {
   };
 };
 
-export default connect(mapState, mapDispatch)(Navbar);
+export default connect(mapState, mapDispatch)(Navigbar);
 
-Navbar.propTypes = {
+Navigbar.propTypes = {
   handleClick: PropTypes.func.isRequired,
   isLoggedIn: PropTypes.bool.isRequired
 };

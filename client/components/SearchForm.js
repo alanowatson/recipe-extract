@@ -34,9 +34,10 @@ class SearchForm extends Component {
               className="padding"
               type="text-medium"
               placeholder="Paste link here!"
+              variant="outlined"
             />
             <div className="buttons_container">
-              <button className="btn" type="submit">
+              <button className="contained" type="submit">
                 Get Ingredients!
               </button>
             </div>

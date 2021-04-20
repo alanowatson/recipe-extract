@@ -85,7 +85,8 @@ p {
   font-size: 0.8em;
   margin: 0 0 2em;
 }
-.btn {
+
+/* .btn {
   letter-spacing: 0.1em;
   cursor: pointer;
   margin-left: 37px;
@@ -99,4 +100,4 @@ p {
 }
 .btn:hover {
   text-decoration: none;
-}
+} */
